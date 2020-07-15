@@ -111,8 +111,4 @@ class TreeBuilder:
 			self.P()
 			self.collectOperator(")")
 		self.climbUp()
-		
-			
-builder = TreeBuilder(LexicalAnalyzer.tokenize("10 + 3"))
-builder.G()
 
