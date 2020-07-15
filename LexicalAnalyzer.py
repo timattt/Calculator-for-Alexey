@@ -29,5 +29,6 @@ def tokenize(text:str) -> list:
 		if (isOperator or isDelimiter) and len(raw_number) > 0:
 			result.append(int(raw_number))
 			raw_number = ""
-	
+	print("Tokenized successfully! Tokens:")
+	print(result)
 	return result
