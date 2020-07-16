@@ -1,31 +1,29 @@
 import LexicalAnalyzer
 
 class Node:
-	children = []
-	values = []
-	name = ""
 	
 	def __init__(self, name:str) -> None:
 		self.name = name
+		self.children = []
+		self.values = []
+		
 		
 	def addChild(self, child) -> None:
 		self.children.append(child)
 		
+	
 	def addValue(self, val) -> None:
-		print(val)
 		self.values.append(val)
 
 class TreeBuilder:
-	currentString = []
-	currentIndex = 0
-	ancestors = []
-	
+
 	def hasMoreTokens(self) -> bool:
 		return self.currentIndex < len(self.currentString)
 	
 	def __init__(self, val) -> None:
 		self.currentString = val
 		self.currentIndex = 0
+		self.ancestors = []
 		
 	def currentToken(self) -> int or str:
 		return self.currentString[self.currentIndex]	
@@ -74,16 +72,18 @@ class TreeBuilder:
 			
 	def makeHead(self) -> None:
 		self.ancestors.append(Node("HEAD"))
+		
 	
 	def climbDown(self, name:str) -> None:
-		print("Climbing down into " + name)
 		new_node = Node(name)
-		self.currentNode().addChild(new_node)
+		old_node = self.currentNode()
+		
+		old_node.addChild(new_node)
 		self.ancestors.append(new_node)
+		
 		
 	def climbUp(self) -> None:
 		self.ancestors.pop()
-		print("climbingUp")
 			
 	def G(self):
 		self.makeHead()
@@ -111,4 +111,5 @@ class TreeBuilder:
 			self.P()
 			self.collectOperator(")")
 		self.climbUp()
+
 

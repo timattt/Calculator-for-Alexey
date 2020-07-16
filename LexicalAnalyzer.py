@@ -16,7 +16,12 @@ def tokenize(text:str) -> list:
 		isOperator = val in operators
 		isDelimiter = val in delimiters
 		isNumber = val.isdigit()
-
+		
+		# flush number if it is ending
+		if (isOperator or isDelimiter) and len(raw_number) > 0:
+			result.append(int(raw_number))
+			raw_number = ""	
+			
 		# if it is operator
 		if isOperator:
 			result.append(val)
@@ -24,11 +29,7 @@ def tokenize(text:str) -> list:
 		# if it may be number
 		if isNumber:
 			raw_number += val
-		
-		# flush number if it is ending
-		if (isOperator or isDelimiter) and len(raw_number) > 0:
-			result.append(int(raw_number))
-			raw_number = ""
+	
 	print("Tokenized successfully! Tokens:")
 	print(result)
 	return result
