@@ -16,7 +16,47 @@ class Node:
 		self.values.append(val)
 
 class TreeBuilder:
-
+	"""
+	Example for: 10 + 2 * (5 + 6)
+	There will be this tree:
+	HEAD
+|
+P{+}
+|\
+| \
+|  \
+|   \
+T    \
+|     \
+|      \
+E{10}	\
+	 \	
+	  \	
+	   \
+	   T{*}
+	  /\
+	 /  \	
+	/    \
+       /     \
+      E{2}    \ 
+	       \
+		E{(, )}
+		|
+		|
+		|
+		P{+}
+		/\     
+	       / \
+	      /   \
+	     /     \
+	    /       \
+	   /         \
+	   T	     T
+	   |         | 
+	   |         |
+	   |         |
+	   E{5}      E{6}	    
+	"""
 	def hasMoreTokens(self) -> bool:
 		return self.currentIndex < len(self.currentString)
 	
