@@ -2,9 +2,8 @@ import LexicalAnalyzer
 import SyntaxAnalyzer
 
 def run(head) -> int:
+	""" recursevly works on a node and generates a number """
 	result = 0
-	
-	#print("goint into: " + head.name + " its hash: " + str(hash(head)))
 	
 	if head.name == "HEAD":
 		result = run(head.children[0])
@@ -19,6 +18,7 @@ def run(head) -> int:
 		# number
 		if len(head.values) == 1:
 			result = head.values[0]
+		# (...)
 		else:
 			result = run(head.children[0])
 	return result

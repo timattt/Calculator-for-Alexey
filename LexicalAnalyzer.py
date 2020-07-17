@@ -30,6 +30,4 @@ def tokenize(text:str) -> list:
 		if isNumber:
 			raw_number += val
 	
-	print("Tokenized successfully! Tokens:")
-	print(result)
 	return result
