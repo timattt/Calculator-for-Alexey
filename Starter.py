@@ -14,6 +14,9 @@ welcome_print()
 print("Enter the statement to solve (avalible operations: '+', '-', '*', '/', round brackets): ")
 test = str(input())
 
+#Debug print
+#print(LexicalAnalyzer.tokenize(test))
+
 #Tokenize the string, build a tree
 builder = SyntaxAnalyzer.TreeBuilder(LexicalAnalyzer.tokenize(test))
 builder.G()
