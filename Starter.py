@@ -2,7 +2,11 @@ import Interpretator
 import LexicalAnalyzer
 import SyntaxAnalyzer
 
-print("Input statement to solve (use only +, *, (, ) and digits, other is comming soon) :)")
+print("===================================")
+print("\tPyCalculator v.0.1")
+print("===================================")
+
+print("Enter the statement to solve (avalible operations: '+', '-', '*', '/', round brackets): ")
 test = str(input())
 
 builder = SyntaxAnalyzer.TreeBuilder(LexicalAnalyzer.tokenize(test))
