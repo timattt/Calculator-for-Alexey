@@ -115,11 +115,18 @@ class TreeBuilder:
         
         def T(self):
                 self.climbDown("T")
-                self.E()
+                self.K()
                 while self.tryOperator("*"):
+                        self.K()
+                self.climbUp()
+
+        def K(self):
+                self.climbDown("K")
+                self.E()
+                while self.tryOperator("/"):
                         self.E()
                 self.climbUp()
-                
+        
         def E(self):
                 self.climbDown("E")
                 if not self.tryNumber():

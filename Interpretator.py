@@ -22,6 +22,13 @@ def run(head) -> int:
                 result = 1
                 for child in head.children:
                         result *= run(child)
+        if head.name == "K":
+                if head.values:
+                        result = run(head.children[0])
+                        for i in range(1, len(head.children)):
+                                result /= run(head.children[i])
+                else:
+                        result = run(head.children[0])
         if head.name == "E":
                 if len(head.values) == 1:
                         result = head.values[0]
