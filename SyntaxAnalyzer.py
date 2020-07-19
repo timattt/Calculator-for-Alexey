@@ -101,11 +101,18 @@ class TreeBuilder:
                 
         def P(self):
                 self.climbDown("P")
-                self.T()
+                self.M()
                 while self.tryOperator("+"):
+                        self.M()
+                self.climbUp()
+
+        def M(self):
+                self.climbDown("M")
+                self.T()
+                while self.tryOperator("-"):
                         self.T()
                 self.climbUp()
-                
+        
         def T(self):
                 self.climbDown("T")
                 self.E()
